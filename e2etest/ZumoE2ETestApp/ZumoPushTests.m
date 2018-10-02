@@ -493,7 +493,7 @@ static NSString *topicSports = @"topic:Sports";
                               return;
                             }
 
-                            NSString *expectedTemplate = @"{\"templateName\":{\"body\":\"{\\\"aps\\\":{\\\"alert\\\":\\\"boo!\\\"},\\\"extraprop\\\":\\\"($message)\\\"}\"}}";
+                            NSString *expectedTemplate = @"{\"templateName\":{\"body\":\"{\\\"aps\\\":{\\\"alert\\\":\\\"boo!\\\"},\\\"extraprop\\\":\\\"($message)\\\"}\",\"tags\":[\"one\",\"templateName\",\"two\"]}}";
                             [client invokeAPI:@"verifyRegisterInstallationResult"
                                          body:nil
                                    HTTPMethod:@"GET"
@@ -524,7 +524,7 @@ static NSString *topicSports = @"topic:Sports";
     };
 
     MSCompletionBlock verifyPushTwo = ^(NSError *error) {
-      NSString *expectedTemplate = @"{\"t7\":{\"body\":\"{\\\"aps\\\":{\\\"alert\\\":\\\"lookout!\\\"}}\"}}";
+      NSString *expectedTemplate = @"{\"t7\":{\"body\":\"{\\\"aps\\\":{\\\"alert\\\":\\\"lookout!\\\"}}\", \"tags\":[\"t7\"]}}";
       [client invokeAPI:@"verifyRegisterInstallationResult"
                    body:nil
              HTTPMethod:@"GET"
